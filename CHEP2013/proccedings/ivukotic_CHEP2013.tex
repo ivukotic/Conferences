@@ -4,20 +4,17 @@
 \usepackage{citesort}
 
 \begin{document}
-\title{Monitoring of computing resource utilization of the ATLAS experiment}
+\title{The True Cost of Data Access in ATLAS}
 
-\author{David Rousseau$^1$, Gancho Dimitrov$^2$, Ilija Vukotic$^1$\footnote[4]{Present address:
-University of Chicago, 5620 S Ellis Ave, Chicago IL 60637, USA}, Osman Aidel$^3$, RD Schaffer$^1$ and Solveig Albrand$^4$}
+\author{VUKOTIC, Ilija$^1$, GARDNER JR, Robert William$^1$, MCKEE, Shawn$^2$ }
 
-\address{$^1$ LAL, Univ. Paris-Sud and CNRS/IN2P3, Orsay, France}
-\address{$^2$ CERN, Geneva, Switzerland}
-\address{$^3$ Domaine scientifique de la Doua, Centre de Calcul CNRS/IN2P3, Villeurbanne Cedex, France}
-\address{$^4$ Laboratoire de Physique Subatomique et de Cosmologie, Universit́e Joseph Fourier and CNRS/IN2P3 and Institut National Polytechnique de Grenoble}
+\address{$^1$ University of Chicago, 5620 S Ellis Ave, Chicago IL 60637, USA}
+\address{$^2$ University of Michigan, ATLAS Group}
 
 \ead{ivukotic@cern.ch}
 
 \begin{abstract}
-  Due to the good performance of the LHC accelerator, the ATLAS experiment has seen higher than anticipated levels for both the event rate and the average number of interactions per bunch crossing. In order to respond to these changing requirements, the current and future usage of CPU, memory and disk resources has to be monitored, understood and acted upon. This requires data collection at a fairly fine level of granularity: the performance of each object written and each algorithm run, as well as a dozen per-job variables, are gathered for the different processing steps of Monte Carlo generation and simulation and the reconstruction of both data and Monte Carlo. We present a system to collect and visualize the data from both the online Tier-0 system and distributed grid production jobs. Around 40 GB of performance data are expected from up to 200k jobs per day, thus making performance optimization of the underlying Oracle database of utmost importance.
+  As new ways of accessing and transferring data distributed over the grid emerge (XRootD-based storage networks, dynamic http federations, etc.) and as the quantity of data grows, a number of challenges are presented to both the application layer and the supporting compute, network and storage infrastructures. Clearly network links between compute and storage systems remain the leading determinant for determining accessibility and performance between client and server. Indeed a number of systems to probe the network and aggregate information about transfers have been deployed to characterize bandwidth, latency and overall throughput between sets of endpoints. We describe combining these and other information sources into a time-dependent cost-of-data-access matrix. This matrix, in combination with other performance indicators, can be used to directly support job brokering and data distribution decisions. More importantly, it can be used as an input to dynamically evolve ATLAS data paths using advanced network protocols such as OpenFlow where they are implemented. We review models of the transfer prioritization, quality-of-service differentiation, and other technologies and their effects on resource utilization.
 \end{abstract}
 
 \section{Introduction}
